@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "AddNewBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Blog</h2>
+<form class="form-group" method="post">
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Resim Url Adrsi")
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownList("CategoryId", new SelectList(ViewBag.kategoriler, "Value", "Text"), "Kategori Seçiniz", new { @class = "form-control" })
+    @*@Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.kategoriler,"Kategori Seçiniz" ,new { @class = "form-control" })*@
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.BlogDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar")
+    @Html.DropDownList("AuthorId", new SelectList(ViewBag.yazarlar, "Value", "Text"), "Yazar Seçiniz", new { @class = "form-control" })
+    @*@Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.yazarlar, "Yazar Seçiniz", new { @class = "form-control" })*@
+    <br />
+    @Html.Label("İçerik")
+    @Html.TextAreaFor(x => x.BlogContent, 10, 10, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

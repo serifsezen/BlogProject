@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Category>
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <th>Kategory Id</th>
+                <th>Kategori Adı</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryId</td>
+                    <td>@item.CategoryName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
