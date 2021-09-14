@@ -28,5 +28,17 @@ namespace Mvc.Controllers
             contactManager.ContactAdd(p);
             return View();
         }
+
+        public ActionResult SendBox()
+        {
+            var messageList = contactManager.GetAll();
+            return View(messageList);
+        }
+
+        public ActionResult MessageDetails(int id)
+        {
+            Contact contact = contactManager.GetContactDetails(id);
+            return View(contact);
+        }
     }
 }

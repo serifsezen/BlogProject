@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +27,16 @@ namespace Mvc.Controllers
             var authorList = authorManager.GetAll();
             return PartialView(authorList);
         }
-        public ActionResult UpdateAbout()
+        public ActionResult UpdateAboutList()
         {
             var aboutlist = aboutManager.GetAll();
             return View(aboutlist);
+        }
+        [HttpPost]
+        public ActionResult UpdateAbout(About p)
+        {
+            aboutManager.UpdateAboutBM(p);
+            return RedirectToAction("UpdateAboutList");
         }
     }
 }
