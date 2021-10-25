@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Mvc.Controllers
 {
+    [AllowAnonymous]
     public class AboutController : Controller
     {
         AboutManager aboutManager = new AboutManager();

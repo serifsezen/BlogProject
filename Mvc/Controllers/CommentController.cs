@@ -12,18 +12,20 @@ namespace Mvc.Controllers
     {
         CommentManager commentManager = new CommentManager();
         // GET: Comment
+        [AllowAnonymous]
         public PartialViewResult CommentList(int id)
         {
             var cm = commentManager.GetCommentById(id);
             return PartialView(cm);
         }
+        [AllowAnonymous]
         [HttpGet]
         public PartialViewResult LeaveComment(int id)
         {
             ViewBag.id = id;
             return PartialView();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public PartialViewResult LeaveComment(Comment p)
         {

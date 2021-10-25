@@ -16,17 +16,20 @@ namespace Mvc.Controllers
     {
         BlogManager blogManager = new BlogManager();
         // GET: Blog
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public PartialViewResult BlogList(int page = 1)
         {
 
             var BlogListe = blogManager.GetAll().ToPagedList(page, 6);
             return PartialView(BlogListe);
         }
+        [AllowAnonymous]
         public PartialViewResult FeaturedPosts()
         {
             //Post1
@@ -85,27 +88,30 @@ namespace Mvc.Controllers
             ViewBag.PostId5 = PostId5;
             return PartialView();
         }
-
+        [AllowAnonymous]
         public PartialViewResult OtherFeaturedPosts()
         {
             return PartialView();
         }
-
+        [AllowAnonymous]
         public ActionResult BlogDetails()
         {
 
             return View();
         }
+        [AllowAnonymous]
         public PartialViewResult BlogCover(int id)
         {
             var BlogDetailList = blogManager.GetBlogById(id);
             return PartialView(BlogDetailList);
         }
+        [AllowAnonymous]
         public PartialViewResult BlogReadAll(int id)
         {
             var BlogDetailList = blogManager.GetBlogById(id);
             return PartialView(BlogDetailList);
         }
+        [AllowAnonymous]
         public ActionResult BlogByCategory(int id)
         {
             var CategoryName = blogManager.GetBlogByCategory(id).Select(y => y.Category.CategoryName).FirstOrDefault();

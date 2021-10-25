@@ -16,6 +16,7 @@ namespace Mvc.Controllers
         {
             return View(cm.GetAll());
         }
+        [AllowAnonymous]
         public PartialViewResult BlogDetailsCategoryList()
         {
             return PartialView(cm.GetAll());
